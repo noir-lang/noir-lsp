@@ -370,7 +370,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "nrs-language-server"
+name = "noir-language-server"
 version = "0.1.0"
 dependencies = [
  "chumsky",

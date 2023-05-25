@@ -1,5 +1,5 @@
 {
-  "name": "nrs-language-server",
+  "name": "noir-language-server",
   "description": "nano rust language server",
   "license": "MIT",
   "version": "1.5.0",
@@ -16,23 +16,23 @@
   },
   "enabledApiProposals": [],
   "activationEvents": [
-    "onLanguage:nrs"
+    "onLanguage:noir"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "languages": [
       {
-        "id": "nrs",
+        "id": "noir",
         "extensions": [
-          ".nrs"
+          ".nr"
         ]
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "nrs-language-server",
+      "title": "noir-language-server",
       "properties": {
-        "nrs-language-server.trace.server": {
+        "noir-language-server.trace.server": {
           "type": "string",
           "scope": "window",
           "enum": [

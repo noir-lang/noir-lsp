@@ -1,10 +1,10 @@
 use std::collections::HashMap;
 
 
-use nrs_language_server::chumsky::{parse, type_inference};
+use noir_language_server::chumsky::{parse, type_inference};
 
 fn main() {
-    let source = include_str!("./test.nrs");
+    let source = include_str!("./test.nr");
     // let source = r#"
     // test
     // println!("{:?}", &source[10..11]);
