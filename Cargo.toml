@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+noirc_frontend = {path = "../noir/crates/noirc_frontend"}
 chumsky = "0.8.0"
 env_logger = "0.9.0"
 ropey = "1.5.0"
