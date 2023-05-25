@@ -138,7 +138,7 @@ impl LanguageServer for Backend {
             let position = params.text_document_position_params.position;
             let char = rope.try_line_to_char(position.line as usize).ok()?;
             let offset = char + position.character as usize;
-            // self.client.log_message(MessageType::INFO, &format!("{:#?}, {}", ast.value(), offset)).await;
+            self.client.log_message(MessageType::INFO, &format!("{:#?}, {}", ast.value(), offset)).await;
             let span = get_definition(&ast, offset);
             self.client
                 .log_message(MessageType::INFO, &format!("{:?}, ", span))
@@ -304,8 +304,8 @@ impl LanguageServer for Backend {
                     match v {
                         noir_language_server::chumsky::Value::Null => "null".to_string(),
                         noir_language_server::chumsky::Value::Bool(_) => "bool".to_string(),
-                        noir_language_server::chumsky::Value::Num(_) => "number".to_string(),
-                        noir_language_server::chumsky::Value::Str(_) => "string".to_string(),
+                        noir_language_server::chumsky::Value::Num(_) => "Number".to_string(),
+                        noir_language_server::chumsky::Value::Str(_) => "String".to_string(),
                         noir_language_server::chumsky::Value::List(_) => "[]".to_string(),
                         noir_language_server::chumsky::Value::Func(_) => v.to_string(),
                     },
@@ -477,10 +477,14 @@ impl Backend {
         let rope = ropey::Rope::from_str(&params.text);
         self.document_map
             .insert(params.uri.to_string(), rope.clone());
-        let (ast, errors, semantic_tokens) = parse(&params.text);
-        // self.client
-        //     .log_message(MessageType::INFO, format!("{:?}", errors))
-        //     .await;
+        let (ast, errors, semantic_tokens) = 
+        parse(&params.text);
+
+        self.client
+            .log_message(MessageType::INFO, format!("AST : {:?}", ast))
+            .await;
+
+
         let diagnostics = errors
             .into_iter()
             .filter_map(|item| {

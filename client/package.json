@@ -1,6 +1,6 @@
 {
 	"name": "noir-language-client",
-	"description": "VSCode part of a language server",
+	"description": "Noir language server client for Vscode",
 	"license": "MIT",
 	"version": "0.0.1",
 	"engines": {
