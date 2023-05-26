@@ -11,8 +11,8 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: Setup | Checkout
-      - uses: actions/checkout@v3
+      - name: Setup | Checkout
+        uses: actions/checkout@v3
       - name: Setup | pnpm
         uses: pnpm/action-setup@v2
         with:
