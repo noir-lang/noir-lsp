@@ -18,12 +18,20 @@ jobs:
         with:
           version: 6.0.2
       - name: Setup | Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: pnpm i
-      - run: pnpm run postinstall
-      - run: pnpm run package
-      - run: npx semantic-release
+      - name: Install
+        run: |
+          npm i
+          npm i -g vsce
+          npm run postinstall
+      - name: Compile
+        run: npm run compile
+      - name: Build
+        run: vsce package
+      - name: Upload
+        run: npx semantic-release
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
