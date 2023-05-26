@@ -2,7 +2,10 @@
   "name": "noir-language-server",
   "description": "nano rust language server",
   "license": "MIT",
-  "version": "1.5.0",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/voidash/noirlsp"
+  },
   "categories": [
     "Programming Languages"
   ],
@@ -28,19 +31,26 @@
     "languages": [
       {
         "id": "noir",
-        "aliases": ["The Noir Programming Language", "nr"],
-        "extensions": [".nr"],
+        "aliases": [
+          "The Noir Programming Language",
+          "nr"
+        ],
+        "extensions": [
+          ".nr"
+        ],
         "configuration": "./client/src/config.json"
       }
     ],
-    "grammars": [{
-          "language": "noir",
-          "scopeName": "source.noir",
-          "path": "./client/src/noir.tmLanguage.json"
-    }],
+    "grammars": [
+      {
+        "language": "noir",
+        "scopeName": "source.noir",
+        "path": "./client/src/noir.tmLanguage.json"
+      }
+    ],
     "configuration": {
       "type": "object",
-      "title": "noir-language-server",
+      "title": "noir-langu-server",
       "properties": {
         "noir-language-server.trace.server": {
           "type": "string",
@@ -78,6 +88,8 @@
     "publish": "vsce publish --no-dependencies"
   },
   "devDependencies": {
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "8.0.6",
     "@types/glob": "^7.1.3",
     "@types/mocha": "^8.0.0",
     "@types/node": "^12.12.0",
@@ -90,12 +102,15 @@
     "eslint": "^7.6.0",
     "glob": "^7.1.7",
     "mocha": "^8.0.1",
+    "semantic-release": "19.0.5",
     "typescript": "^4.4.3",
     "vscode-test": "^1.4.0",
     "vscode-uri": "^3.0.2",
-    "webpack": "^5.82.1"
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1"
   },
   "dependencies": {
+    "vsce": "^2.15.0",
     "vscode-languageclient": "^8.0.2"
   }
 }
