@@ -946,6 +946,7 @@ dependencies = [
  "ropey",
  "serde",
  "serde_json",
+ "thread-safe",
  "tokio",
  "tower-lsp",
 ]
@@ -1595,6 +1596,12 @@ dependencies = [
  "quote",
  "syn 2.0.16",
 ]
+
+[[package]]
+name = "thread-safe"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "743ae75a2bcb336b8ca11e5b6fda88af2a6e155922626c1e255dfecd3c78fe88"
 
 [[package]]
 name = "tiny-keccak"
