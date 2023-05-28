@@ -44,13 +44,13 @@
     "grammars": [
       {
         "language": "noir",
-        "scopeName": "source.noir",
+        "scopeName": "source.nr",
         "path": "./client/src/noir.tmLanguage.json"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "noir-langu-server",
+      "title": "noir-language-server",
       "properties": {
         "noir-language-server.trace.server": {
           "type": "string",
@@ -72,13 +72,13 @@
     }
   },
   "scripts": {
-    "postinstall": "cd client && pnpm i",
+    "postinstall": "cd client && npm i",
     "vscode:prepublish": "npm run esbuild-base -- --minify",
     "esbuild-base": "esbuild ./client/src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
     "test-compile": "tsc -p ./",
-    "compile": "cross-env NODE_ENV=production tsc -b",
+    "compile": "tsc -b",
     "watch": "rm -rf dist && tsc -b -w",
     "lint": "eslint src --ext ts",
     "pretest": "npm run compile && npm run lint",
